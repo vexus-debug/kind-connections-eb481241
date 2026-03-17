@@ -4,13 +4,13 @@ import SectionReveal from "@/components/SectionReveal";
 import heroImage from "@/assets/hero-clinic.jpg";
 
 const services = [
-  { icon: Shield, title: "Preventive Dentistry", desc: "Cleanings, checkups, fluoride treatments & oral hygiene education.", color: "text-teal" },
+  { icon: Shield, title: "Preventive Dentistry", desc: "Cleanings, checkups, fluoride treatments & oral hygiene education.", color: "text-accent" },
   { icon: Heart, title: "General Dentistry", desc: "Fillings, extractions, gum treatment & infection management.", color: "text-primary" },
-  { icon: Zap, title: "Restorative Dentistry", desc: "Root canals, crowns, bridges, dentures & dental implants.", color: "text-teal" },
+  { icon: Zap, title: "Restorative Dentistry", desc: "Root canals, crowns, bridges, dentures & dental implants.", color: "text-accent" },
   { icon: Star, title: "Cosmetic Dentistry", desc: "Teeth whitening, veneers, smile design & gap closure.", color: "text-primary" },
-  { icon: CheckCircle, title: "Orthodontics", desc: "Braces, clear aligners & bite correction for all ages.", color: "text-teal" },
+  { icon: CheckCircle, title: "Orthodontics", desc: "Braces, clear aligners & bite correction for all ages.", color: "text-accent" },
   { icon: Clock, title: "Emergency Care", desc: "Surgical extractions, pain relief, abscess drainage & trauma.", color: "text-primary" },
-  { icon: Heart, title: "Pediatric Dentistry", desc: "Child-friendly care, space maintainers & early assessment.", color: "text-teal" },
+  { icon: Heart, title: "Pediatric Dentistry", desc: "Child-friendly care, space maintainers & early assessment.", color: "text-accent" },
 ];
 
 const stats = [
@@ -36,7 +36,7 @@ const Index = () => (
             </span>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-primary-foreground leading-[1.1] mb-6">
               Expert dental care that feels like{" "}
-              <span className="text-primary">family</span>.
+              <span className="text-accent">family</span>.
             </h1>
             <p className="font-body text-lg text-primary-foreground/80 leading-relaxed max-w-xl mb-10">
               From routine cleanings to advanced oral surgery, Rubi Smile provides gentle, modern dentistry in the heart of Karu, Abuja.
@@ -85,9 +85,9 @@ const Index = () => (
       <div className="container mx-auto px-6">
         <SectionReveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="font-display text-sm font-semibold text-teal uppercase tracking-wider">Why Choose Us</span>
+            <span className="font-display text-sm font-semibold text-accent uppercase tracking-wider">Why Choose Us</span>
             <h2 className="font-display text-4xl font-extrabold text-foreground mt-3">
-              Gentle dentistry, <span className="text-primary">brilliant</span> results
+              Gentle dentistry, <span className="text-accent">brilliant</span> results
             </h2>
             <p className="font-body text-muted-foreground mt-4 leading-relaxed">
               We combine modern equipment with a compassionate approach to make every visit comfortable.
@@ -103,7 +103,7 @@ const Index = () => (
             <SectionReveal key={item.title} delay={i * 0.15}>
               <div className="rounded-card bg-background p-8 shadow-card transition-all duration-200 hover:shadow-hover-lift hover:-translate-y-1">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-inner bg-accent/10">
-                  <item.icon className="h-6 w-6 text-teal" />
+                  <item.icon className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="font-display text-lg font-bold text-foreground">{item.title}</h3>
                 <p className="font-body text-sm text-muted-foreground mt-2 leading-relaxed">{item.desc}</p>
@@ -119,7 +119,7 @@ const Index = () => (
       <div className="container mx-auto px-6">
         <SectionReveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="font-display text-sm font-semibold text-primary uppercase tracking-wider">Our Services</span>
+            <span className="font-display text-sm font-semibold text-accent uppercase tracking-wider">Our Services</span>
             <h2 className="font-display text-4xl font-extrabold text-foreground mt-3">
               Comprehensive dental care
             </h2>
@@ -155,9 +155,9 @@ const Index = () => (
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <SectionReveal>
-            <span className="font-display text-sm font-semibold text-teal uppercase tracking-wider">Find Us</span>
+            <span className="font-display text-sm font-semibold text-accent uppercase tracking-wider">Find Us</span>
             <h2 className="font-display text-4xl font-extrabold text-foreground mt-3">
-              Visit us in <span className="text-primary">Karu, Abuja</span>
+              Visit us in <span className="text-accent">Karu, Abuja</span>
             </h2>
             <p className="font-body text-muted-foreground mt-4 leading-relaxed">
               Conveniently located near major landmarks. We're easy to find and always ready to welcome you.
@@ -171,7 +171,7 @@ const Index = () => (
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Clock className="h-5 w-5 text-teal mt-0.5" />
+                <Clock className="h-5 w-5 text-accent mt-0.5" />
                 <div>
                   <div className="font-display text-sm font-bold text-foreground">Working Hours</div>
                   <div className="font-body text-sm text-muted-foreground">Monday – Saturday: 9:00 AM – 5:30 PM</div>
@@ -210,7 +210,7 @@ const Index = () => (
       <div className="container mx-auto px-6 text-center">
         <SectionReveal>
           <h2 className="font-display text-4xl font-extrabold text-primary-foreground">
-            Ready for a <span className="text-primary">brighter</span> smile?
+            Ready for a <span className="text-accent">brighter</span> smile?
           </h2>
           <p className="font-body text-primary-foreground/70 mt-4 max-w-xl mx-auto leading-relaxed">
             Book your appointment today. Walk-ins welcome for emergencies.

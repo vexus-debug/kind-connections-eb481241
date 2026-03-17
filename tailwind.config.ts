@@ -51,8 +51,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        rubi: "hsl(var(--rubi))",
-        teal: "hsl(var(--teal))",
+        "deep-teal": "hsl(var(--deep-teal))",
+        cyan: "hsl(var(--cyan))",
         "slate-deep": "hsl(var(--slate-deep))",
         "warm-gray": "hsl(var(--warm-gray))",
         sidebar: {

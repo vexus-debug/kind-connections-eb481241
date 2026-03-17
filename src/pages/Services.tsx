@@ -6,7 +6,7 @@ const serviceCategories = [
   {
     icon: Shield,
     title: "Preventive Dentistry",
-    color: "text-teal",
+    color: "text-accent",
     bgColor: "bg-accent/10",
     items: [
       "Scaling & polishing (professional cleaning)",
@@ -34,7 +34,7 @@ const serviceCategories = [
   {
     icon: Zap,
     title: "Restorative Dentistry",
-    color: "text-teal",
+    color: "text-accent",
     bgColor: "bg-accent/10",
     items: [
       "Root canal therapy (endodontics)",
@@ -61,7 +61,7 @@ const serviceCategories = [
   {
     icon: CheckCircle,
     title: "Orthodontics",
-    color: "text-teal",
+    color: "text-accent",
     bgColor: "bg-accent/10",
     items: [
       "Traditional braces (metal/ceramic)",
@@ -86,7 +86,7 @@ const serviceCategories = [
   {
     icon: Heart,
     title: "Pediatric Dentistry",
-    color: "text-teal",
+    color: "text-accent",
     bgColor: "bg-accent/10",
     items: [
       "Child-friendly dental care",
@@ -105,7 +105,7 @@ const Services = () => (
     <section className="bg-muted py-24">
       <div className="container mx-auto px-6 text-center">
         <SectionReveal>
-          <span className="font-display text-sm font-semibold text-primary uppercase tracking-wider">What We Offer</span>
+          <span className="font-display text-sm font-semibold text-accent uppercase tracking-wider">What We Offer</span>
           <h1 className="font-display text-5xl font-extrabold text-foreground mt-3">Our Services</h1>
           <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
             Comprehensive dental care for the whole family — from routine checkups to advanced procedures.
@@ -128,7 +128,7 @@ const Services = () => (
                 <ul className="space-y-2">
                   {cat.items.map((item) => (
                     <li key={item} className="flex items-start gap-2 font-body text-sm text-muted-foreground">
-                      <CheckCircle className="h-4 w-4 text-teal mt-0.5 shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-accent mt-0.5 shrink-0" />
                       {item}
                     </li>
                   ))}

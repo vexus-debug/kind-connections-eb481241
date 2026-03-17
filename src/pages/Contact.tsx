@@ -7,7 +7,7 @@ const Contact = () => (
     <section className="bg-muted py-24">
       <div className="container mx-auto px-6 text-center">
         <SectionReveal>
-          <span className="font-display text-sm font-semibold text-primary uppercase tracking-wider">Get In Touch</span>
+          <span className="font-display text-sm font-semibold text-accent uppercase tracking-wider">Get In Touch</span>
           <h1 className="font-display text-5xl font-extrabold text-foreground mt-3">Contact Us</h1>
           <p className="font-body text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
             Ready to book an appointment or have a question? We'd love to hear from you.
@@ -30,7 +30,7 @@ const Contact = () => (
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4 rounded-card bg-muted p-5">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-inner bg-accent/10">
-                    <item.icon className="h-5 w-5 text-teal" />
+                    <item.icon className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="font-display text-sm font-bold text-foreground">{item.label}</div>
