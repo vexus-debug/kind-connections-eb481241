@@ -21,7 +21,7 @@ import treatment1 from "@/assets/gallery/treatment-1.webp";
 import treatment2 from "@/assets/gallery/treatment-2.webp";
 import treatment3 from "@/assets/gallery/treatment-3.jpg";
 import clinicBanner from "@/assets/gallery/clinic-banner.webp";
-import entranceSign from "@/assets/gallery/entrance-sign.jpg";
+import entranceSign from "@/assets/gallery/entrance-sign-new.jpg";
 import orthodontics from "@/assets/gallery/orthodontics.webp";
 
 /* ─── Data ─── */
@@ -225,7 +225,7 @@ const Index = () => (
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <img src={treatment3} alt="Dental treatment" className="w-full aspect-[4/3] object-cover" />
+                <img src={entranceSign} alt="Dental clinic entrance" className="w-full aspect-[4/3] object-cover" />
               </motion.div>
             </div>
           </SectionReveal>
