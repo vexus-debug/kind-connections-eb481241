@@ -103,7 +103,7 @@ const Index = () => (
             <SectionReveal key={item.title} delay={i * 0.15}>
               <div className="rounded-card bg-background p-8 shadow-card transition-all duration-200 hover:shadow-hover-lift hover:-translate-y-1">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-inner bg-accent/10">
-                  <item.icon className="h-6 w-6 text-teal" />
+                  <item.icon className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="font-display text-lg font-bold text-foreground">{item.title}</h3>
                 <p className="font-body text-sm text-muted-foreground mt-2 leading-relaxed">{item.desc}</p>
