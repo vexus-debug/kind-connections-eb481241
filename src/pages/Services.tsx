@@ -6,7 +6,7 @@ const serviceCategories = [
   {
     icon: Shield,
     title: "Preventive Dentistry",
-    color: "text-teal",
+    color: "text-accent",
     bgColor: "bg-accent/10",
     items: [
       "Scaling & polishing (professional cleaning)",
