@@ -61,7 +61,7 @@ const serviceCategories = [
   {
     icon: CheckCircle,
     title: "Orthodontics",
-    color: "text-teal",
+    color: "text-accent",
     bgColor: "bg-accent/10",
     items: [
       "Traditional braces (metal/ceramic)",
