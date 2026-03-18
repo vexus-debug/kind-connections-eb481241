@@ -69,7 +69,6 @@ const galleryPreview = [
   { src: entranceSign, alt: "Welcome signage at the entrance" },
   { src: waitingArea, alt: "Step into our comfortable waiting area" },
   { src: reception, alt: "Friendly reception & check-in" },
-  { src: frontDesk, alt: "Our front desk team greets you" },
   { src: dentalChair, alt: "Settle into a modern dental chair" },
   { src: operatory, alt: "State-of-the-art operatory" },
   { src: treatment1, alt: "Expert treatment in progress" },
