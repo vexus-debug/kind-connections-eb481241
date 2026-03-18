@@ -48,7 +48,14 @@ const stats = [
   { value: "NHIS", label: "Insurance Accepted", icon: Shield },
 ];
 
-const About = () => (
+const About = () => {
+  const { content: c } = useSiteContent("about");
+  const dbValues = (c.values as any[]) || values;
+  const dbMilestones = (c.milestones as any[]) || milestones;
+  const WHATSAPP_NUMBER = "2349038535214";
+  const CALL_NUMBER = "+2349024403837";
+
+  return (
   <Layout>
     {/* Hero with image background */}
     <section className="relative min-h-[65vh] flex items-center overflow-hidden">

@@ -204,13 +204,13 @@ const Services = () => {
         <div className="container mx-auto px-6 relative z-10 py-32">
           <SectionReveal>
             <span className="inline-flex items-center gap-2 rounded-full bg-accent/20 px-4 py-1.5 font-display text-sm font-semibold text-accent backdrop-blur-sm border border-accent/20">
-              <Sparkles className="h-4 w-4" /> Comprehensive Dental Care
+              <Sparkles className="h-4 w-4" /> {(c.hero_badge as string) || "Comprehensive Dental Care"}
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary-foreground mt-6 max-w-3xl leading-[1.1]">
-              Expert Care for Every <span className="text-accent">Smile</span>
+              {(c.hero_heading as string) || <>Expert Care for Every <span className="text-accent">Smile</span></>}
             </h1>
             <p className="font-body text-lg text-primary-foreground/80 mt-6 max-w-xl leading-relaxed">
-              From routine cleanings to advanced procedures — 7 specialized service categories tailored to your family's needs.
+              {(c.hero_desc as string) || "From routine cleanings to advanced procedures — 7 specialized service categories tailored to your family's needs."}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <button
