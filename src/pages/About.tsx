@@ -155,7 +155,7 @@ const About = () => {
               </div>
               <h3 className="font-display text-2xl font-extrabold text-foreground">Our Mission</h3>
               <p className="font-body text-muted-foreground mt-4 leading-relaxed">
-                To provide exceptional, patient-centered dental care that is accessible, affordable, and delivered with compassion. We strive to educate our patients, prevent oral disease, and restore smiles using the latest techniques and technology.
+                {(c.mission as string) || "To provide exceptional, patient-centered dental care that is accessible, affordable, and delivered with compassion. We strive to educate our patients, prevent oral disease, and restore smiles using the latest techniques and technology."}
               </p>
             </div>
           </SectionReveal>
