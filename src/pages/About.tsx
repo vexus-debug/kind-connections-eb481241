@@ -338,7 +338,7 @@ const About = () => {
       <div className="container mx-auto px-6 relative z-10 text-center">
         <SectionReveal>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-primary-foreground max-w-2xl mx-auto">
-            Ready to Experience the Rubi Smile Difference?
+            {(c.cta_heading as string) || "Ready to Experience the Rubi Smile Difference?"}
           </h2>
           <p className="font-body text-primary-foreground/70 mt-4 max-w-lg mx-auto leading-relaxed">
             Book your appointment today and discover dental care that truly puts you first.
