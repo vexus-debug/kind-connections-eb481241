@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Phone, Shield, Heart, Zap, ArrowRight, Star, Clock, MapPin,
@@ -24,6 +24,7 @@ import treatment3 from "@/assets/gallery/treatment-3.jpg";
 import clinicBanner from "@/assets/gallery/clinic-banner.webp";
 import entranceSign from "@/assets/gallery/entrance-sign-new.jpg";
 import orthodontics from "@/assets/gallery/orthodontics.webp";
+import { supabase } from "@/integrations/supabase/client";
 
 /* ─── Data ─── */
 const services = [
@@ -50,7 +51,7 @@ const steps = [
   { num: "04", title: "Smile Bright", desc: "Walk out with a healthier, more confident smile." },
 ];
 
-const testimonials = [
+const defaultTestimonials = [
   { name: "Adaeze O.", text: "Rubi Smile made my first dental visit so comfortable. The team is incredibly patient and professional. I actually look forward to my checkups now!", rating: 5 },
   { name: "Ibrahim M.", text: "I had a root canal here and was amazed at how painless it was. The doctor explained every step. Highly recommend to anyone nervous about dental work.", rating: 5 },
   { name: "Blessing A.", text: "My kids love going to the dentist now — that says everything! The pediatric care is top-notch and the clinic is so clean and welcoming.", rating: 5 },
@@ -77,7 +78,16 @@ const galleryPreview = [
 ];
 
 /* ─── Component ─── */
-const Index = () => (
+const Index = () => {
+  const [liveReviews, setLiveReviews] = useState<any[]>([]);
+  useEffect(() => {
+    supabase.from("reviews").select("*").eq("approved", true).order("created_at", { ascending: false }).limit(6).then(({ data }) => {
+      if (data && data.length > 0) setLiveReviews(data.map((r: any) => ({ name: r.name, text: r.review_text, rating: r.rating })));
+    });
+  }, []);
+  const testimonials = liveReviews.length > 0 ? liveReviews : defaultTestimonials;
+
+  return (
   <div className="overflow-hidden">
 
     {/* ═══════════════════ HERO ═══════════════════ */}
@@ -607,7 +617,8 @@ const Index = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 /* ─── FAQ Item Component ─── */
 const FaqItem = ({ question, answer }: { question: string; answer: string }) => {

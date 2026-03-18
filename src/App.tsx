@@ -14,6 +14,7 @@ import Privacy from "./pages/Privacy.tsx";
 import Terms from "./pages/Terms.tsx";
 import Disclaimer from "./pages/Disclaimer.tsx";
 import Gallery from "./pages/Gallery.tsx";
+import Reviews from "./pages/Reviews.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 // Admin
@@ -28,6 +29,7 @@ import EditGalleryPage from "./pages/admin/EditGalleryPage.tsx";
 import EditHeaderFooter from "./pages/admin/EditHeaderFooter.tsx";
 import EditLegalPages from "./pages/admin/EditLegalPages.tsx";
 import EditSettings from "./pages/admin/EditSettings.tsx";
+import EditReviews from "./pages/admin/EditReviews.tsx";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +50,7 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
 
             {/* Admin routes */}
@@ -58,6 +61,7 @@ const App = () => (
             <Route path="/admin/about" element={<DashboardLayout><EditAboutPage /></DashboardLayout>} />
             <Route path="/admin/contact" element={<DashboardLayout><EditContactPage /></DashboardLayout>} />
             <Route path="/admin/gallery" element={<DashboardLayout><EditGalleryPage /></DashboardLayout>} />
+            <Route path="/admin/reviews" element={<DashboardLayout><EditReviews /></DashboardLayout>} />
             <Route path="/admin/header-footer" element={<DashboardLayout><EditHeaderFooter /></DashboardLayout>} />
             <Route path="/admin/legal" element={<DashboardLayout><EditLegalPages /></DashboardLayout>} />
             <Route path="/admin/settings" element={<DashboardLayout><EditSettings /></DashboardLayout>} />

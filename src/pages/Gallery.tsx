@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
 import Layout from "@/components/Layout";
+import { supabase } from "@/integrations/supabase/client";
 
+// Static fallback images
 import treatment1 from "@/assets/gallery/treatment-1.webp";
 import treatment2 from "@/assets/gallery/treatment-2.webp";
 import treatment3 from "@/assets/gallery/treatment-3.jpg";
@@ -19,40 +21,61 @@ import operatory from "@/assets/gallery/operatory.jpg";
 import entranceSign from "@/assets/gallery/entrance-sign-new.jpg";
 import clinicExterior2 from "@/assets/gallery/clinic-exterior-2.jpg";
 
-const images = [
+const staticImages = [
   { src: exterior, alt: "Rubi Smile Dental Clinic exterior", category: "Clinic" },
   { src: entranceSign, alt: "Dental clinic entrance signage", category: "Clinic" },
-  { src: clinicBanner, alt: "Rubi Smile Dental Clinic banner and services", category: "Clinic" },
+  { src: clinicBanner, alt: "Rubi Smile Dental Clinic banner", category: "Clinic" },
   { src: signage, alt: "Dental services signage", category: "Clinic" },
-  { src: waitingArea, alt: "Comfortable waiting area with seating", category: "Waiting & Reception" },
-  { src: waitingArea2, alt: "Spacious waiting lounge with water dispenser", category: "Waiting & Reception" },
-  { src: reception, alt: "Reception area with dental model display", category: "Waiting & Reception" },
-  { src: operatory, alt: "Modern dental operatory with digital equipment", category: "Surgery Rooms" },
+  { src: waitingArea, alt: "Comfortable waiting area", category: "Waiting & Reception" },
+  { src: waitingArea2, alt: "Spacious waiting lounge", category: "Waiting & Reception" },
+  { src: reception, alt: "Reception area", category: "Waiting & Reception" },
+  { src: operatory, alt: "Modern dental operatory", category: "Surgery Rooms" },
   { src: dentalChair, alt: "Dental chair and treatment room", category: "Surgery Rooms" },
   { src: treatment1, alt: "Dental treatment in progress", category: "Treatment" },
-  { src: treatment2, alt: "Professional dental care by our team", category: "Treatment" },
-  { src: treatment3, alt: "Expert dental procedure with assistant", category: "Treatment" },
-  { src: orthodontics, alt: "Orthodontic braces treatment result", category: "Treatment" },
-  { src: clinicExterior2, alt: "Rubi Smile Dental Clinic building exterior", category: "Clinic" },
+  { src: treatment2, alt: "Professional dental care", category: "Treatment" },
+  { src: treatment3, alt: "Expert dental procedure", category: "Treatment" },
+  { src: orthodontics, alt: "Orthodontic braces treatment", category: "Treatment" },
+  { src: clinicExterior2, alt: "Clinic building exterior", category: "Clinic" },
 ];
 
-const categories = ["All", ...Array.from(new Set(images.map((img) => img.category)))];
+interface GalleryItem {
+  src: string;
+  alt: string;
+  category: string;
+}
 
 const Gallery = () => {
   const [selected, setSelected] = useState<number | null>(null);
   const [filter, setFilter] = useState("All");
+  const [images, setImages] = useState<GalleryItem[]>(staticImages);
 
+  useEffect(() => {
+    supabase
+      .from("gallery_images")
+      .select("*")
+      .order("sort_order")
+      .then(({ data }) => {
+        if (data && data.length > 0) {
+          setImages(
+            data.map((img: any) => ({
+              src: img.image_url,
+              alt: img.alt_text,
+              category: img.category,
+            }))
+          );
+        }
+      });
+  }, []);
+
+  const categories = ["All", ...Array.from(new Set(images.map((img) => img.category)))];
   const filtered = filter === "All" ? images : images.filter((img) => img.category === filter);
 
   return (
     <Layout>
-      {/* Hero */}
       <section className="section-gradient-teal py-20 sm:py-28">
         <div className="container mx-auto px-6 text-center">
           <SectionReveal>
-            <span className="inline-block font-display text-sm font-semibold text-accent uppercase tracking-widest mb-4">
-              Our Gallery
-            </span>
+            <span className="inline-block font-display text-sm font-semibold text-accent uppercase tracking-widest mb-4">Our Gallery</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-6">
               See our <span className="text-accent">clinic</span> in action
             </h1>
@@ -63,7 +86,6 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Filter tabs */}
       <section className="bg-background py-8 sticky top-20 z-30 border-b border-border/50">
         <div className="container mx-auto px-6 flex gap-2 flex-wrap justify-center">
           {categories.map((cat) => (
@@ -82,7 +104,6 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Grid */}
       <section className="bg-background py-12 sm:py-20">
         <div className="container mx-auto px-6">
           <motion.div layout className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
@@ -98,12 +119,7 @@ const Gallery = () => {
                   className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer bg-muted"
                   onClick={() => setSelected(images.findIndex((x) => x.alt === img.alt))}
                 >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-colors duration-300 flex items-center justify-center">
                     <ZoomIn className="h-8 w-8 text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -117,7 +133,6 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Lightbox */}
       <AnimatePresence>
         {selected !== null && (
           <motion.div
@@ -127,10 +142,7 @@ const Gallery = () => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/90 backdrop-blur-sm p-4"
             onClick={() => setSelected(null)}
           >
-            <button
-              className="absolute top-6 right-6 p-2 rounded-full bg-background/20 text-primary-foreground hover:bg-background/40 transition-colors"
-              onClick={() => setSelected(null)}
-            >
+            <button className="absolute top-6 right-6 p-2 rounded-full bg-background/20 text-primary-foreground hover:bg-background/40 transition-colors" onClick={() => setSelected(null)}>
               <X className="h-6 w-6" />
             </button>
             <motion.img
@@ -138,15 +150,12 @@ const Gallery = () => {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.3 }}
               src={images[selected].src}
               alt={images[selected].alt}
               className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
-            <p className="absolute bottom-8 text-center font-display text-sm text-primary-foreground/80">
-              {images[selected].alt}
-            </p>
+            <p className="absolute bottom-8 text-center font-display text-sm text-primary-foreground/80">{images[selected].alt}</p>
           </motion.div>
         )}
       </AnimatePresence>
