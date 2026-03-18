@@ -20,10 +20,10 @@ import treatment3 from "@/assets/gallery/treatment-3.jpg";
 import orthodontics from "@/assets/gallery/orthodontics.webp";
 import reception from "@/assets/gallery/reception-desk.jpg";
 
-const WHATSAPP_NUMBER = "2349038535214";
-const CALL_NUMBER = "+2349024403837";
+const WHATSAPP_NUMBER_DEFAULT = "2349038535214";
+const CALL_NUMBER_DEFAULT = "+2349024403837";
 
-const serviceCategories = [
+const defaultServiceCategories = [
   {
     icon: Shield,
     title: "Preventive Dentistry",
